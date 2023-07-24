@@ -16,6 +16,9 @@ class NieuwsAfspelen(MycroftSkill):
         wait_while_speaking()
         self.audio_service.play('https://cdn.nos.nl/content/radio/ditisdenieuweurlvoorhetradiobulletinvoorgooglevanafjuli2019.mp3')
 
+    def stop(self):
+        self.audio_service.stop()
+        
 def create_skill():
     return NieuwsAfspelen()
 
