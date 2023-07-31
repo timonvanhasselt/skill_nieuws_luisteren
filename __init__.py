@@ -8,6 +8,7 @@ class NieuwsAfspelen(OVOSSkill):
     def __init__(self):
         super().__init__(name="Nieuws NOS")
         self.url = "https://cdn.nos.nl/content/radio/ditisdenieuweurlvoorhetradiobulletinvoorgooglevanafjuli2019.mp3"
+        self.image = "https://raw.githubusercontent.com/timonvanhasselt/skill-ovos-news/dev/ui/images/nos.jpg"
 
     def initialize(self):
         self.audio_service = MycroftAudioService(self.bus)
@@ -19,6 +20,7 @@ class NieuwsAfspelen(OVOSSkill):
         self.speak_dialog('nieuws_afspelen')
         wait_while_speaking()
         self.audio_service.play(self.url)
+        self.gui.show_image(self.image, caption=None, title=None, fill=None, override_idle=None, override_animations=False)
 
     def stop(self):
         self.audio_service.stop()
