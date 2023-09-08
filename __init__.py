@@ -1,7 +1,10 @@
 from ovos_workshop.skills import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 from ovos_audio.utils import wait_while_speaking
-from ovos_plugin_common_play.ocp.mycroft_cps import MycroftAudioService
+from ovos_plugin_common_play.ocp.mycroft_cps import MycroftAudioService 
+from ovos_plugin_common_play.ocp.‎player‎ import OCPMediaPlayer‎
+from ovos_plugin_common_play.ocp.gui import OCPMediaPlayerGUI
+
 import time
 
 class NieuwsAfspelen(OVOSSkill):
@@ -13,7 +16,7 @@ class NieuwsAfspelen(OVOSSkill):
 
     def initialize(self):
         self.audio_service = MycroftAudioService(self.bus)
-
+   
     @intent_handler('nieuws_afspelen.intent')
     
     def play(self, message):
@@ -26,6 +29,6 @@ class NieuwsAfspelen(OVOSSkill):
     
     def stop(self):
         self.audio_service.stop()
-        self.ocp.shutdown()
+        self.bus.emit(Message("gui.player.media.service.stop"))
 
 
