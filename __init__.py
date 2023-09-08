@@ -26,9 +26,6 @@ class NieuwsAfspelen(OVOSSkill):
     
     def stop(self):
         self.audio_service.stop()
-        self.bus.remove("gui.player.media.service.set.meta",
-                        self.handle_receive_meta)
-        if self.ocp is not None:
-            self.ocp.shutdown()
+        self.ocp.shutdown()
 
 
