@@ -23,7 +23,9 @@ class NieuwsAfspelen(OVOSSkill):
         self.gui.show_image(self.image, fill="PreserveAspectCrop", override_idle=120, override_animations=False)
         time.sleep(2)
         self.audio_service.play(self.url)
+        self.gui.clear()
     
     def stop(self):
         self.audio_service.stop()
+        self.gui.clear()
 
