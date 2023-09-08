@@ -2,6 +2,7 @@ from ovos_workshop.skills import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 from ovos_audio.utils import wait_while_speaking
 from ovos_plugin_common_play.ocp.mycroft_cps import MycroftAudioService
+import time
 
 class NieuwsAfspelen(OVOSSkill):
 
@@ -19,8 +20,10 @@ class NieuwsAfspelen(OVOSSkill):
         self.log.info("Hier is het NOS nieuws")
         self.speak_dialog('nieuws_afspelen')
         wait_while_speaking()
+        self.gui.show_image(self.image, fill="PreserveAspectCrop", override_idle=120, override_animations=False)
+        time.sleep(2)
         self.audio_service.play(self.url)
-        self.gui.show_image(self.image, caption=None, title=None, fill=None, override_idle=None, override_animations=False)
-
+    
     def stop(self):
         self.audio_service.stop()
+
