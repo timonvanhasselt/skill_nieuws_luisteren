@@ -2,7 +2,6 @@ from ovos_workshop.skills import OVOSSkill
 from ovos_workshop.decorators import intent_handler
 from ovos_audio.utils import wait_while_speaking
 from ovos_plugin_common_play.ocp.mycroft_cps import MycroftAudioService 
-from ovos_plugin_common_play.ocp.‎player‎ import OCPMediaPlayer‎
 from ovos_plugin_common_play.ocp.gui import OCPMediaPlayerGUI
 
 import time
