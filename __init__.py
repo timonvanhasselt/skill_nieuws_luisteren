@@ -23,9 +23,12 @@ class NieuwsAfspelen(OVOSSkill):
         self.gui.show_image(self.image, fill="PreserveAspectCrop", override_idle=120, override_animations=False)
         time.sleep(2)
         self.audio_service.play(self.url)
-        self.gui.clear()
     
     def stop(self):
         self.audio_service.stop()
-        self.gui.clear()
+        self.bus.remove("gui.player.media.service.set.meta",
+                        self.handle_receive_meta)
+        if self.ocp is not None:
+            self.ocp.shutdown()
+
 
