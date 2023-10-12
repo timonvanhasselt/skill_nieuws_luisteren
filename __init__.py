@@ -8,10 +8,9 @@ import time
 
 
 class NieuwsAfspelen(OVOSSkill):
-   # def __init__(self):
-    #    super().__init__()
     def __init__(self):
-        super().__init__()
+        super(NieuwsAfspelen, self).__init__()
+        self.skill_id = "skill_nieuws_luisteren"
         self.url = "https://cdn.nos.nl/content/radio/ditisdenieuweurlvoorhetradiobulletinvoorgooglevanafjuli2019.mp3"
         self.image = "https://raw.githubusercontent.com/timonvanhasselt/skill-ovos-news/dev/ui/images/nos.jpg"
         self.audio = None
